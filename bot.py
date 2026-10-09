@@ -1,3 +1,27 @@
+import os
+import threading
+from flask import Flask
+import telebot
+
+# --- KEEP-ALIVE SERVER FOR RENDER ---
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Candy Buddies Bot is running 24/7!", 200
+
+def run_web():
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
+
+# Background thread me web server start hoga
+threading.Thread(target=run_web, daemon=True).start()
+# -----------------------------------
+
+# Yahan se aapka telebot ka code continue hoga:
+# bot = telebot.TeleBot("YOUR_BOT_TOKEN")
+# ... handlers ...
+# bot.infinity_polling()
 import telebot
 from telebot import types
 
