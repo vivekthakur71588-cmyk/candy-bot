@@ -43,7 +43,7 @@ def send_welcome(message):
         "🚀 *Tap START FARMING below and let the fun begin!* 🍭✨"
     )
     markup = types.InlineKeyboardMarkup()
-    web_app_info = types.WebAppInfo(url=WEBAPP_URL)
+    web_app_info = types.WebAppInfo(url="https://candy-buddy-earn.vercel.app/")
     btn_start = types.InlineKeyboardButton("🚀 START FARMING 🍭", web_app=web_app_info)
     markup.add(btn_start)
     bot.send_message(message.chat.id, caption_text, parse_mode='Markdown', reply_markup=markup)
